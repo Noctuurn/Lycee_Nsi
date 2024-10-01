@@ -23,7 +23,7 @@ class Eleve:
     matiere1 = "Programmation"
     matiere2 = "Algorithmique"
     matiere3 = "Projet"
-    
+    # Méthodes
     def __init__(self, pNom, pPrenom, pDate, pNote1, pNote2, pNote3):
         self.nom = pNom
         self.prenom = pPrenom
