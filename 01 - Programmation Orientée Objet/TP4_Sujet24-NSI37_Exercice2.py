@@ -11,18 +11,17 @@ class AdresseIP:
     def est_reservee(self): 
         """renvoie True si l'adresse IP est une adresse 
            reservee, False sinon""" 
-        return True or False
+        return self.adresse == "192.168.0.0" or self.adresse == "192.168.0.255" 
               
     def adresse_suivante(self): 
         """renvoie un objet de AdresseIP avec l'adresse  
            IP qui suit l'adresse self 
            si elle existe et False sinon""" 
-        if self.adresse < 254: 
-            octet_nouveau = octet_nouveau + 1 
-            return AdresseIP('192.168.0.' + octet_nouveau) 
+        if self.liste_octet()[-1] < 254: 
+            octet_nouveau = int(self.liste_octet()[-1]) + 1 
+            return AdresseIP('192.168.0.' + str(octet_nouveau)) 
         else: 
             return False
-
 adresse1 = AdresseIP('192.168.0.1')
 adresse2 = AdresseIP('192.168.0.2')
 adresse3 = AdresseIP('192.168.0.0')
