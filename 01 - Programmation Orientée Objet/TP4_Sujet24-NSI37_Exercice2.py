@@ -25,6 +25,7 @@ class AdresseIP:
 adresse1 = AdresseIP('192.168.0.1')
 adresse2 = AdresseIP('192.168.0.2')
 adresse3 = AdresseIP('192.168.0.0')
+
 print(
 adresse1.est_reservee(),
 adresse3.est_reservee(),
