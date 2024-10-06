@@ -1,3 +1,5 @@
+# Note : ce fichier est l'ancien tp 4 , pour le nouveau, consulter le fichier TP4_Sujet25-NSI37_Exercice2.py
+
 class AdresseIP: 
  
     def __init__(self, adresse): 
