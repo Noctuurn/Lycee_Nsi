@@ -8,7 +8,7 @@ pygame.init()
 clock = pygame.time.Clock()
 
 # Dimensions de la fenetre
-largeur = 820
+largeur = 638
 hauteur = 320
 screen = pygame.display.set_mode((largeur, hauteur))
 
@@ -23,31 +23,51 @@ font = pygame.font.Font('font/elite.ttf', 16)
 WHITE = pygame.Color(255, 255, 255)
 text = font.render('Projet NSI', True, WHITE) 
 
+# Création du score
+score = 0 
+AffchageScore = font.render('Score =',score, True, WHITE)
+
 # Création de la classe Balle
 class Balle:
 	def __init__(self,x,y):
-		self.x = random()*largeur-55
-		self.y = random()*hauteur-55
-		
+	# Coordonnees de la VITESSE initiale de la balle (générees aléatoirement)
+		self.angle = 2*math.pi*random()
+		self.deltax = 5*math.cos(self.angle)
+		self.deltay = 5*math.sin(self.angle)
 
 	def getX(self):
 		return x
 	
 	def getY(self):
 		return y
+	
+	def setX(self,valeurX):
+		return valeurX
+	
+	def setY(self,valeurY):
+		return valeurY
+	
+	def estTouchee(self) :
+		if event.type == pygame.KEYDOWN and event.key == pygame.BUTTON_LEFT :
+			global score 
+			score += 1
+			self.kill()
 		
-# Coordonnees de la POSITION initiale de la balle (générees aléatoirement)
+##################################################### A FINIR
+
+	def est_au_bord(self):
+		if (self.x>largeur-50 and self.deltax>0) or (self.x<0 and self.deltax<0):
+			self.deltax = -self.deltax
+		elif (self.y>hauteur-50 and self.deltay>0) or (self.y<0 and self.deltay<0):
+			self.deltay = -self.deltay
+	
+	def update_pos(self) : 
+		self.x += self.deltax
+		self.y += self.deltay
+
+
 x = random()*largeur-55
 y = random()*hauteur-55
-
-
-# Coordonnees de la VITESSE initiale de la balle (générees aléatoirement)
-angle = 2*math.pi*random()
-deltax = 5*math.cos(angle)
-deltay = 5*math.sin(angle)
-
-
-
 #  --------------------------------------------------------------------------
 #  Boucle exécutée pendant toute la partie (Barre espace pour quitter le jeu)
 #  --------------------------------------------------------------------------
@@ -59,28 +79,17 @@ while continuer:
 			continuer = False
 		if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
 			continuer = False
-					
-	
-	#calcul de la nouvelle position de la balle, la balle avance de deltax et de deltay suivant les axes
-	x = x + deltax
-	y = y + deltay
-	
-	
-	# Rebonds sur les cotés du cadre pour gérer les changements de directions
-	if (x>largeur-50 and deltax>0) or (x<0 and deltax<0):
-		deltax = -deltax
-	elif (y>hauteur-50 and deltay>0) or (y<0 and deltay<0):
-		deltay = -deltay
-
+						
 
 	# Affichage des objets à l'écran 
 	screen.blit(fond, (0,0))
 	screen.blit(text, (490,300))
+	screen.blit(AffchageScore, (1,300))
 	screen.blit(balle, (x, y))
 
-	# Affichage de l'image avec une cadence de 50 images par seconde
+
 	pygame.display.update()
-	clock.tick(50)
+	clock.tick(60)
 
 
 #  --------------------------------------------------------------------------

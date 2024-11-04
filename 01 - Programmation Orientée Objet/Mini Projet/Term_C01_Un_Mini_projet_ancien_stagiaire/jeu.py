@@ -47,7 +47,8 @@ while continuer:
 			continuer = False
 		if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
 			continuer = False
-					
+		if event.type == pygame.KEYDOWN and event.key == pygame.MOUSEBUTTONDOWN :
+			balle.kill()
 	
 	#calcul de la nouvelle position de la balle, la balle avance de deltax et de deltay suivant les axes
 	x = x + deltax
