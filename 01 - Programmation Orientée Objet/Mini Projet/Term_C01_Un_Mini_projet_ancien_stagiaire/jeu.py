@@ -21,8 +21,10 @@ font = pygame.font.Font('font/elite.ttf', 16)
 # Couleur pour le texte
 WHITE = pygame.Color(255, 255, 255)
 
-# Initialisation du score
+# Initialisation du score & de la précision
 score = 0
+accuracy = 1
+clicks = 1
 
 # Création de la classe Balle
 class Balle:
@@ -62,12 +64,17 @@ while continuer:
             continuer = False
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             pos = pygame.mouse.get_pos()
+            clicks += 1
             for balle in balles[:]:  # Utilise une copie de la liste pour éviter les erreurs de modification en boucle
                 if balle.estTouchee(pos):
                     score += 1
+                    accuracy += 1
                     balles.remove(balle) 
                     break  # Si le break est présent, lorsque deux balles se superposent, une seule balle sera supprimée. 
                     	   #Si on retire le break, toutes les balles présentes à l'emplacement du clic seront supprimées .
+                else : 
+                    accuracy -= 1
+                    break
 
     # Mettre à jour la position de chaque balle restante
     for balle in balles:
@@ -82,6 +89,9 @@ while continuer:
     AffichageScore = font.render(f'Score = {score}', True, WHITE)
     screen.blit(AffichageScore, (1, 300))
 
+    # Mise à jour de la précision
+    AffichageAccuracy = font.render(f'Précision = {(accuracy/clicks)*100}%', True, WHITE)
+    screen.blit(AffichageAccuracy, (1, 280))
     # Texte du projet
     text = font.render('Projet NSI', True, WHITE)
     screen.blit(text, (490, 300))

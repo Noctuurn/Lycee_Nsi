@@ -1,6 +1,7 @@
 Objectifs : 
-Créer un programme fonctionnel
+Créer un programme fonctionnel FAIT
+Créer un pourcentage de précision FAIT
+
 Créer un menu ( interface graphique )
-Créer un pourcentage de précision
 Créer un mode de jeu "aimlab" ( ou plus tu clique vite sur la cible , plus tu gagne de points)
 Créer un mode de jeu rapidité ( ou les cibles ne dureraient que quelques secondes)
