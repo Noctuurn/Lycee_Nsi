@@ -1,4 +1,5 @@
 liste_chainee = ("n",("s",("i",None)))
+liste_videe = (None,None)
 
 def creer_liste() -> tuple :
     lis = (None,None)
@@ -10,34 +11,32 @@ def liste_vide(lis:tuple) -> bool:
     else : 
         return False
 
-def inserer(lis:tuple,elt):
+def inserer(lis:tuple,elt)-> tuple :
     lis = (elt,lis)
     return lis 
 
-def suppr(lis):
+def suppr(lis:tuple)-> tuple :
     sup,lis = lis[0],lis[1]
     return sup
 
-def tete(lis):
+def tete(lis:tuple)-> tuple :
     return lis[0]
 
-def queue(lis):
+def queue(lis:tuple)-> tuple :
     return lis[1]
 
-def compte(lis):
-    compteur = 0
-    for i in lis:
-        if lis[i] != None :
-            compteur += 1
-        else :
-            return compteur
+def compte(lis:tuple )-> int :
+    longueur = 0
+    current = lis
+
+    return longueur
         
 
 
 if __name__ == "__main__":
     print(liste_chainee)
     creer_liste()
-    liste_vide(creer_liste)
+    print(liste_vide(liste_videe))
 
     inserer(liste_chainee,"TG6")
     suppr(liste_chainee)
