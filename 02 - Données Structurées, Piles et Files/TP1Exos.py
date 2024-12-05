@@ -1,5 +1,5 @@
 liste_chainee = ("n",("s",("i",None)))
-liste_videe = (None,None)
+liste_v = (None,None)
 
 def creer_liste() -> tuple :
     lis = (None,None)
@@ -25,7 +25,7 @@ def tete(lis:tuple)-> tuple :
 def queue(lis:tuple)-> tuple :
     return lis[1]
 
-def compte(lis:tuple )-> int :
+def compte(lis:tuple)-> int :
     longueur = 0
     for _ in range(len(lis)):
         longueur += 1
@@ -36,7 +36,7 @@ def compte(lis:tuple )-> int :
 if __name__ == "__main__":
     print(liste_chainee)
     creer_liste()
-    print(liste_vide(liste_videe))
+    print(liste_vide(liste_v))
 
     inserer(liste_chainee,"TG6")
     suppr(liste_chainee)
@@ -44,4 +44,6 @@ if __name__ == "__main__":
     queue(liste_chainee)
     compte(liste_chainee)
     print("Tous les tests unitaires marchent !")
+
+
 

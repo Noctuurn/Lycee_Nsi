@@ -19,6 +19,7 @@ def taille(pile)-> int :
 def sommet(pile)-> str :
     return pile[0]
 
+# Assertions
 
 
 class Pile :
@@ -45,3 +46,5 @@ class Pile :
 
     def __str__(self):
         return f"Pile({self.items})"
+
+#
