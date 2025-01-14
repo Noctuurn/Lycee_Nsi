@@ -25,7 +25,7 @@ class AdresseIP:
         else: 
             return False
 adresse1 = AdresseIP('192.168.0.1')
-adresse2 = AdresseIP('192.168.0.2')
+adresse2 = AdresseIP('192.168.0.2') 
 adresse3 = AdresseIP('192.168.0.0')
 
 print(
